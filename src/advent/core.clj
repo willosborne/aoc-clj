@@ -1,11 +1,9 @@
 (ns advent.core
-  (:require [cprop.core :refer [load-config]]
+  (:require [advent.config :refer [env]]
             [advent.db :as db]
             [clj-http.client :as client]
             [clj-http.cookies :as cookies]))
 
-(def env
-  (load-config :resource "env.edn"))
 
 (defn format-url [year day]
   (format "https://adventofcode.com/%d/day/%d/input" year day))

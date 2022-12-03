@@ -1,5 +1,5 @@
 (ns advent.db
-  (:require [advent.core :refer [env]]
+  (:require [advent.config :refer [env]]
             [clojure.java.jdbc :refer :all]))
 
 (def db
