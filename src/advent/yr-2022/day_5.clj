@@ -69,11 +69,11 @@
     (move-crate stacks source dest n)))
 
 
-(defn answer-1 []
+(defn answer-2 []
   (->> (loop [crates initial-crates
               [o & os] ops]
          (if o
-           (recur (run-op crates o)
+           (recur (run-op-2 crates o)
                   os)
            crates))
        (mapv first)
