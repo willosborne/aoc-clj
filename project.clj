@@ -7,5 +7,6 @@
                  [cprop "0.1.19"]
                  [org.clojure/java.jdbc "0.7.8"]
                  [org.xerial/sqlite-jdbc "3.23.1"]
-                 [clj-http "3.12.3"]]
+                 [clj-http "3.12.3"]
+                 [instaparse "1.4.12"]]
   :repl-options {:init-ns advent.core})
