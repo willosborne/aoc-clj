@@ -58,9 +58,6 @@
 
   )
 
-(defn get-col [rows x]
-  (nth (apply map vector rows) x))
-
 (defn transpose [rows]
   (apply map vector rows))
 
