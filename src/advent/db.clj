@@ -16,3 +16,6 @@
   (insert! db :inputs {:year year
                        :day day
                        :text text}))
+
+(defn init-table []
+  (execute! db "CREATE TABLE inputs (year INTEGER, day INTEGER, text TEXT)"))
