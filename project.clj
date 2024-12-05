@@ -9,4 +9,5 @@
                  [org.xerial/sqlite-jdbc "3.23.1"]
                  [clj-http "3.12.3"]
                  [instaparse "1.4.12"]]
-  :repl-options {:init-ns advent.core})
+  :repl-options {:init-ns advent.core}
+  :jvm-opts ["-Djdk.attach.allowAttachSelf"])
