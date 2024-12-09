@@ -28,7 +28,6 @@
 (defn answer-url [year day]
   (format "https://adventofcode.com/%d/day/%d/answer" year day))
 
-(defn answer-object )
 
 (defn guess [year day part answer]
   (client/post (answer-url year day)
