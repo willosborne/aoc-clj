@@ -19,8 +19,27 @@
   (let [numstr (str num)]
     (not (apply = (split-half numstr)))))
 
+(defn valid-any? [num]
+  (let [numstr (str num)
+        divisors (range 1 (count numstr)) ;; could limit at n/2
+        chunks (map (fn [n]
+                      (partition n n [\x] numstr)) ;; split into all possible sets of partitions, pad with x
+                    divisors)]
+    (some (fn [elems] (apply = elems)) chunks))) ;; if they're all equal we are good
+
 (defn ans1 []
   (let [rangestrs (str/split (apply str (drop-last input)) #",")
         ranges (map expand-range rangestrs)
         counts (map #(filter valid? %) ranges)]
     (apply + (map #(apply + %) counts))))
+
+(defn run-ans2 [input]
+  (let [rangestrs (str/split (apply str (drop-last input)) #",")
+        ranges (map expand-range rangestrs)
+        counts (map #(filter valid-any? %) ranges)]
+    (apply + (map #(apply + %) counts))))
+
+(def test-input "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124\n")
+
+(defn ans2 []
+  (run-ans2 input))
