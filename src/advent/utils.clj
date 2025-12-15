@@ -14,4 +14,21 @@
           (recur (inc y) rs)
           [x y])))))
 
-(defn do-for-neighbours)
+(defn grid-get [grid x y]
+  (get (get grid y) x))
+
+(defn filter-grid [pred grid]
+  (for [x (range (count (get grid 0)))
+        y (range (count grid))
+        :when (pred (grid-get grid x y))]
+    [x y (grid-get grid x y)]))
+
+(defn get-neighbours [grid x y]
+  (for [dx (range -1 2)
+        dy (range -1 2)
+        :when (not (and (= dx 0) (= dy 0)))]
+    (let [nx (+ x dx)
+          ny (+ y dy)]
+      {:x nx
+       :y ny
+       :val (grid-get grid nx ny)})))
